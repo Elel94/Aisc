@@ -82,7 +82,7 @@ variable "applications" {
   }
 
   validation {
-    condition = length(toset([for app in var.applications : app.name])) == length(var.applications)
+    condition     = length(toset([for app in var.applications : app.name])) == length(var.applications)
     error_message = "Les noms d'application doivent être uniques."
   }
 }
