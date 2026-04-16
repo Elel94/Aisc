@@ -13,3 +13,7 @@ variable "applications" {
     estimated_users = number
   }))
 }
+
+terraform {
+  required_version = ">= 1.5.0"
+}
