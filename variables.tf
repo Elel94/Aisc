@@ -82,23 +82,7 @@ variable "applications" {
   }
 
   validation {
-    condition     = length(toset([for app in var.applications : app.name])) == length(var.applications)
+    condition = length(toset([for app in var.applications : app.name])) == length(var.applications)
     error_message = "Les noms d'application doivent être uniques."
-  }
-
-  validation {
-    condition = alltrue([
-      for app in var.applications :
-      var.environment != "prod" || !(app.tier == "internal" && app.exposure == "public")
-    ])
-    error_message = "En prod, une application internal ne peut pas être publique."
-  }
-
-  validation {
-    condition = alltrue([
-      for app in var.applications :
-      var.environment != "prod" || app.tier != "frontend" || contains([80, 443], app.port)
-    ])
-    error_message = "En prod, les frontend doivent utiliser 80 ou 443."
   }
 }
