@@ -135,12 +135,14 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: `## Terraform logical estimation
-\`\`\`
+
 DEV
 ${dev}
+
 STAGING
 ${staging}
+
 PROD
 ${prod}
-\`\`\``
+`
             });
