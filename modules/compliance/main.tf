@@ -1,7 +1,3 @@
-terraform {
-  required_version = ">= 1.5.0"
-}
-
 locals {
 
   prod_frontend_port_ok = alltrue([
