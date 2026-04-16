@@ -1,7 +1,3 @@
-terraform {
-  required_version = ">= 1.5.0"
-}
-
 locals {
   common_tags = {
     project     = var.project_name
