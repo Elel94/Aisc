@@ -1,0 +1,18 @@
+# Terraform state
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+# Variable files sensibles
+*.auto.tfvars
+secret*.tfvars
+# Plan files
+*.tfplan
+*.plan.bin
+# Python
+__pycache__/
+*.pyc
+# OS / Editor
+.DS_Store
+.vscode/
+.idea/
