@@ -55,12 +55,6 @@ jobs:
           output_file_path: console,results.sarif
           soft_fail: true
  
-      - name: "Upload Checkov SARIF results"
-        if: always()
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: results.sarif
- 
   plan:
     name: "Terraform Plan"
     runs-on: ubuntu-latest

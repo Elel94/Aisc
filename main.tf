@@ -11,11 +11,6 @@ locals {
     managed_by  = "terraform"
   }
 
-  app_map = {
-    for app in var.applications :
-    app.name => app
-  }
-
   apps_by_tier = {
     frontend = [for app in var.applications : app.name if app.tier == "frontend"]
     backend  = [for app in var.applications : app.name if app.tier == "backend"]
