@@ -126,20 +126,12 @@ jobs:
         with:
           script: |
             const fs = require("fs");
-
             const dev = fs.readFileSync("dev-estimate.txt", "utf8");
             const staging = fs.readFileSync("staging-estimate.txt", "utf8");
             const prod = fs.readFileSync("prod-estimate.txt", "utf8");
-
-            const body =
-              "## Terraform logical estimation\n\n" +
-              "DEV\n" + dev + "\n\n" +
-              "STAGING\n" + staging + "\n\n" +
-              "PROD\n" + prod;
 
             await github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: body
-            });
+              body: `## Terraform logical estimation
